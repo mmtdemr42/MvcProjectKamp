@@ -10,11 +10,8 @@ namespace DataAccessLayer.Concrete.Repository
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        private readonly Context _context;
-        public GenericRepository(Context context)
-        {
-            _context = context;
-        }
+        Context _context = new Context();
+      
         public void Delete(T entity)
         {
             _context.Set<T>().Remove(entity);
