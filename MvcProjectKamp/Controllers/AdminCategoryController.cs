@@ -46,5 +46,40 @@ namespace MvcProjectKamp.Controllers
 
             return View(category);
         }
+
+        public ActionResult Delete(int id)
+        {
+            var category = categoryManager.GetByID(id);
+            categoryManager.Delete(category);
+            return RedirectToAction("Index");
+
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var category = categoryManager.GetByID(id);
+            return View(category);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Category category)
+        {
+            ValidationResult results = categoryValidator.Validate(category);
+
+            if (results.IsValid)
+            {
+                categoryManager.Update(category);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var error in results.Errors)
+                {
+                    ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                }
+            }
+
+            return View(category);
+        }
     }
 }

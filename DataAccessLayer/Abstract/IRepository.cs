@@ -10,6 +10,7 @@ namespace DataAccessLayer.Abstract
     public interface IRepository<TEntity>
     {
         List<TEntity> List();
+        TEntity Get(Expression<Func<TEntity, bool>> filter);
         void Insert(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
