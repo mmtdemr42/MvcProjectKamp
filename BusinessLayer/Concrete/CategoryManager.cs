@@ -39,9 +39,25 @@ namespace BusinessLayer.Concrete
             return _categoryDal.List();
         }
 
+        public int CategoryCount()
+        {
+             return _categoryDal.List().Select(c=> new { count= c.CategoryID}).Count();
+        }
+
         public void Update(Category category)
         {
             _categoryDal.Update(category);
+        }
+
+        public Category MaxCategoryHeading()
+        {
+           return _categoryDal.List().GroupBy(c => c.Headings).Max().FirstOrDefault();
+        }
+
+        public int StatusDifference()
+        {
+            var a = _categoryDal.List().Where(c => c.CategoryStatus == true).Count();
+            return Math.Abs(_categoryDal.List().Count() - a);
         }
     }
 }

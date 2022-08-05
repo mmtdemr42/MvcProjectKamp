@@ -1,0 +1,47 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>İstatistikler</h2>
+
+<div class="card-columns">
+    <div class="card login-card-body bg-primary">
+        <div class="card-body  text-center">
+            <h1 class="card-header">@ViewBag.CategoryCount</h1>
+            <h4 class="card-header-tabs">Kategori Sayısı</h4>
+        </div>
+    </div>
+
+    <div class="card login-card-body bg-danger">
+        <div class="card-body  text-center">
+            <h1 class="card-header">@ViewBag.StatusDiffrence</h1>
+            <h4 class="card-header-tabs">Onaylı/Onaysız</h4>
+        </div>
+    </div>
+
+    <div class="card login-card-body bg-success">
+        <div class="card-body  text-center">
+            <h1 class="card-header">@ViewBag.HeadingCount</h1>
+            <h4 class="card-header-tabs">Yazılım Başlık Sayısı</h4>
+        </div>
+    </div>
+
+    <div class="card login-card-body bg-dark">
+        <div class="card-body  text-center">
+            <h1 class="card-header">@ViewBag.HeadingA</h1>
+            <h4 class="card-header-tabs">A Harfi İçeren Başlık Sayısı</h4>
+        </div>
+    </div>
+
+    <div class="card login-card-body bg-cyan">
+        <div class="card-body  text-center">
+            <h1 class="card-header">@ViewBag.MaxCategoryName</h1>
+            <h4 class="card-header-tabs">En Fazla Başlık İçeren Kategori</h4>
+        </div>
+    </div>
+
+
+</div>
+
