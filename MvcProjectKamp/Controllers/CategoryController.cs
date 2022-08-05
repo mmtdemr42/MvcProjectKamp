@@ -18,7 +18,7 @@ namespace MvcProjectKamp.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            var result = categoryManager.GetCategories();
+            var result = categoryManager.Get();
             return View(result);
         }
 
@@ -28,7 +28,7 @@ namespace MvcProjectKamp.Controllers
             ValidationResult results = categoryValidator.Validate(category);
             if (results.IsValid)
             {
-                categoryManager.CategoryAddBL(category);
+                categoryManager.Add(category);
                 return RedirectToAction("Index");
             }
             else

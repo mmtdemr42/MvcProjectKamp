@@ -10,23 +10,13 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class CategoryManager : ICategoryService
+    public class CategoryManager :GenericServiceManager<Category>, ICategoryService
     {
-        private readonly ICategoryDal _categoryDal;
+        private readonly IRepository<Category> _categoryDal;
 
-        public CategoryManager(ICategoryDal categoryDal)
+        public CategoryManager(IRepository<Category> manager) : base(manager)
         {
-            _categoryDal = categoryDal;
-        }
-
-        public void CategoryAddBL(Category category)
-        {
-            _categoryDal.Insert(category);
-        }
-
-        public void Delete(Category category)
-        {
-            _categoryDal.Delete(category);
+            _categoryDal = manager;
         }
 
         public Category GetByID(int id)
@@ -34,19 +24,10 @@ namespace BusinessLayer.Concrete
             return _categoryDal.Get(category => category.CategoryID == id);
         }
 
-        public List<Category> GetCategories()
-        {
-            return _categoryDal.List();
-        }
-
+      
         public int CategoryCount()
         {
              return _categoryDal.List().Select(c=> new { count= c.CategoryID}).Count();
-        }
-
-        public void Update(Category category)
-        {
-            _categoryDal.Update(category);
         }
 
         public Category MaxCategoryHeading()

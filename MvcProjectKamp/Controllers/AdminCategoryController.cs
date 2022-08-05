@@ -18,7 +18,7 @@ namespace MvcProjectKamp.Controllers
         // GET: AdminCategory
         public ActionResult Index()
         {
-            return View(categoryManager.GetCategories());
+            return View(categoryManager.Get());
         }
 
         public ActionResult AddCategory()
@@ -33,7 +33,7 @@ namespace MvcProjectKamp.Controllers
 
             if (results.IsValid)
             {
-                categoryManager.CategoryAddBL(category);
+                categoryManager.Add(category);
                 return RedirectToAction("Index");
             }
             else
@@ -62,6 +62,7 @@ namespace MvcProjectKamp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Category category)
         {
             ValidationResult results = categoryValidator.Validate(category);
@@ -78,8 +79,7 @@ namespace MvcProjectKamp.Controllers
                     ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
                 }
             }
-
-            return View(category);
+            return RedirectToAction("Index");
         }
     }
 }
