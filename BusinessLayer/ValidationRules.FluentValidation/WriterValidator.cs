@@ -24,6 +24,8 @@ namespace BusinessLayer.ValidationRules.FluentValidation
             RuleFor(w => w.WriterName).NotEmpty().WithMessage("İsim alanı boş geçilemez!");
             RuleFor(w => w.WriterPassword).NotEmpty().WithMessage("Parola alanı boş geçilemez!");
             RuleFor(w => w.WriterPassword).Length(8, 20).WithMessage("Parola uzunluğu 8-20 karakter arasında olması gerekmektedir.");
+            RuleFor(w => w.WriterTitle).NotEmpty().WithMessage("Unvan alanı boş geçilemez!");
+            RuleFor(w => w.WriterTitle).Length(8, 20).WithMessage("Unvan uzunluğu 8-20 karakter arasında olması gerekmektedir.");
         }
     }
 }

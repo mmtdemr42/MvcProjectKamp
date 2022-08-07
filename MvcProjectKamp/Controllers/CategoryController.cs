@@ -18,7 +18,7 @@ namespace MvcProjectKamp.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            var result = categoryManager.Get();
+            var result = categoryManager.List();
             return View(result);
         }
 

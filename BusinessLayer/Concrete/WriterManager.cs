@@ -16,5 +16,10 @@ namespace BusinessLayer.Concrete
         {
             _manager = manager;
         }
+
+        public Writer GetByID(int id)
+        {
+            return _manager.Get(w => w.WriterID == id);
+        }
     }
 }

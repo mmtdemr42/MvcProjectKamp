@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract
 {
     interface IWriterService : IService<Writer>
     {
+        Writer GetByID(int id);
     }
 }

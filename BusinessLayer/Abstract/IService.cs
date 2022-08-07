@@ -8,7 +8,7 @@ namespace BusinessLayer.Abstract
 {
     public interface IService<TEntity>
     {
-        List<TEntity> Get();
+        List<TEntity> List();
         void Add(TEntity entity);
         void Delete(TEntity entity);
         void Update(TEntity entity);

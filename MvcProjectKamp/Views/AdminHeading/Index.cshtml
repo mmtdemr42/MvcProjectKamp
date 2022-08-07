@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Heading>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Başlıklar</h2>
+<table class="table table-hover table-bordered table-striped table-condensed">
+    <tr class="text-center">
+        <th>Sıra</th>
+        <th> Başlık Adı</th>
+        <th class="text-left"> Kategori</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+        <th>Başlıklar</th>
+    </tr>
+
+    @foreach (var heading in Model)
+    {
+        <tr class="text-center">
+            <th>@heading.HeadingID</th>
+            <td>@heading.HeadingName</td>
+            <td>@heading.Category.CategoryName</td>
+            <td><a href="/AdminHeading/Edit/@heading.HeadingID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/AdminHeading/Delete/@heading.HeadingID" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-info">Başlıklar</a></td>
+        </tr>
+    }
+</table>
+
+
+
+@Html.ActionLink("Başlık Ekle", "AddHeading", null, new { @class = "btn btn-primary" })

@@ -18,7 +18,7 @@ namespace MvcProjectKamp.Controllers
         // GET: AdminCategory
         public ActionResult Index()
         {
-            return View(categoryManager.Get());
+            return View(categoryManager.List());
         }
 
         public ActionResult AddCategory()

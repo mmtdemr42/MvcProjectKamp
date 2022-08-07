@@ -28,10 +28,11 @@ namespace BusinessLayer.Concrete
             _manager.Delete(entity);
         }
 
-        public List<TEntity> Get()
+        public List<TEntity> List()
         {
             return _manager.List();
         }
+
 
         public void Update(TEntity entity)
         {

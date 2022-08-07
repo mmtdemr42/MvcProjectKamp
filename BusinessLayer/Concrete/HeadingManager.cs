@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class HeadingManager :  GenericServiceManager<Heading>, IHeadingService
+    public class HeadingManager : GenericServiceManager<Heading>, IHeadingService
     {
         private readonly IRepository<Heading> _headingDal;
 
@@ -19,17 +19,18 @@ namespace BusinessLayer.Concrete
             _headingDal = manager;
         }
 
-     
+
         public int CategoryHeadingCount(int id)
         {
-            return _headingDal.List().Where(h=>h.CategoryID==id).Count();
+            return _headingDal.List().Where(h => h.CategoryID == id).Count();
         }
 
-       
+
         public Heading GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _headingDal.Get(h => h.HeadingID == id);
         }
+
 
         public int HeadingFilter(string s)
         {
