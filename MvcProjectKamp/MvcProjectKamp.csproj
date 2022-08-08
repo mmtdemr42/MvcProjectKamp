@@ -2286,6 +2286,7 @@
     <Content Include="Views\AdminWriter\AddWriter.cshtml" />
     <Content Include="Views\AdminWriter\Edit.cshtml" />
     <Content Include="Views\AdminHeading\Index.cshtml" />
+    <Content Include="Views\AdminHeading\AddHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

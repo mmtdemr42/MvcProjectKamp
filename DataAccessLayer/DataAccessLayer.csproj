@@ -79,6 +79,14 @@
     <Compile Include="Migrations\202208071917238_writer_title_migr.designer.cs">
       <DependentUpon>202208071917238_writer_title_migr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208081114006_writer_image_update.cs" />
+    <Compile Include="Migrations\202208081114006_writer_image_update.designer.cs">
+      <DependentUpon>202208081114006_writer_image_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208081232521_writer_writer_status_added.cs" />
+    <Compile Include="Migrations\202208081232521_writer_writer_status_added.designer.cs">
+      <DependentUpon>202208081232521_writer_writer_status_added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +109,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208071917238_writer_title_migr.resx">
       <DependentUpon>202208071917238_writer_title_migr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208081114006_writer_image_update.resx">
+      <DependentUpon>202208081114006_writer_image_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208081232521_writer_writer_status_added.resx">
+      <DependentUpon>202208081232521_writer_writer_status_added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
