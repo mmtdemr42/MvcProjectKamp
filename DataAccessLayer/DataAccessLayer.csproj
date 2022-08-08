@@ -87,6 +87,14 @@
     <Compile Include="Migrations\202208081232521_writer_writer_status_added.designer.cs">
       <DependentUpon>202208081232521_writer_writer_status_added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208081753492_migr_content_status.cs" />
+    <Compile Include="Migrations\202208081753492_migr_content_status.designer.cs">
+      <DependentUpon>202208081753492_migr_content_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208081800385_migr_heading_status.cs" />
+    <Compile Include="Migrations\202208081800385_migr_heading_status.designer.cs">
+      <DependentUpon>202208081800385_migr_heading_status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208081232521_writer_writer_status_added.resx">
       <DependentUpon>202208081232521_writer_writer_status_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208081753492_migr_content_status.resx">
+      <DependentUpon>202208081753492_migr_content_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208081800385_migr_heading_status.resx">
+      <DependentUpon>202208081800385_migr_heading_status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
