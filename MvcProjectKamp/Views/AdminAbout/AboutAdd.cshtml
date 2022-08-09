@@ -1,0 +1,29 @@
+﻿@model EntityLayer.Concrete.About
+
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal_about">Yeni Hakkımızda Ekle</button>
+<div class="modal" id="Modal_about">
+    <div class="modal-dialog">
+        <div class="modal-content p-2">
+            <div class="modal-header">
+                <h2 class="modal-title">Hakkımızda</h2>
+            </div>
+            <form action="/AdminAbout/AddAbout" method="post">
+                @Html.Label("Hakkımızda Detay-1")
+                @Html.TextAreaFor(a => a.AboutDetails1, new { @class = "form-control" })
+                <br />
+                @Html.Label("Hakkımızda Detay-2")
+                @Html.TextAreaFor(a => a.AboutDetails2, new { @class = "form-control" })
+                <br />
+                @Html.Label("Hakkımızda Görsel-1")
+                @Html.TextBoxFor(a => a.AboutImage1, new { @class = "form-control" })
+                <br />
+                @Html.Label("Hakkımızda Görsel-2")
+                @Html.TextBoxFor(a => a.AboutImage2, new { @class = "form-control" })
+                <br />
+                <button type="submit" class="btn btn-primary">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

@@ -18,10 +18,10 @@ namespace EntityLayer.Concrete
         [StringLength(1000)]
         public string AboutDetails2 { get; set; }
 
-        [StringLength(100)]
+        [StringLength(250)]
         public string AboutImage1 { get; set; }
 
-        [StringLength(100)]
+        [StringLength(250)]
         public string AboutImage2 { get; set; }
     }
 }

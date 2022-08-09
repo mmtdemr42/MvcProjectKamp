@@ -95,6 +95,18 @@
     <Compile Include="Migrations\202208081800385_migr_heading_status.designer.cs">
       <DependentUpon>202208081800385_migr_heading_status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208090819449_about_image_lenght.cs" />
+    <Compile Include="Migrations\202208090819449_about_image_lenght.designer.cs">
+      <DependentUpon>202208090819449_about_image_lenght.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208091217175_contact_date_and_messageAdd.cs" />
+    <Compile Include="Migrations\202208091217175_contact_date_and_messageAdd.designer.cs">
+      <DependentUpon>202208091217175_contact_date_and_messageAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208091221146_addMessage.cs" />
+    <Compile Include="Migrations\202208091221146_addMessage.designer.cs">
+      <DependentUpon>202208091221146_addMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -129,6 +141,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208081800385_migr_heading_status.resx">
       <DependentUpon>202208081800385_migr_heading_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208090819449_about_image_lenght.resx">
+      <DependentUpon>202208090819449_about_image_lenght.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208091217175_contact_date_and_messageAdd.resx">
+      <DependentUpon>202208091217175_contact_date_and_messageAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208091221146_addMessage.resx">
+      <DependentUpon>202208091221146_addMessage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
