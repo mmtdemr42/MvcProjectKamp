@@ -145,8 +145,10 @@
     <Compile Include="Controllers\AdminWriterController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -310,6 +312,10 @@
     <Content Include="AdminLTE-3.0.4\docs\_layouts\home.html" />
     <Content Include="AdminLTE-3.0.4\docs\_layouts\page.html" />
     <Content Include="AdminLTE-3.0.4\docs\_layouts\post.html" />
+    <Content Include="AdminLTE-3.0.4\ErrorTemplate\ErrorTemplate-main\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\ErrorTemplate\ErrorTemplate-main\img\bg.jpg" />
+    <Content Include="AdminLTE-3.0.4\ErrorTemplate\ErrorTemplate-main\index.html" />
+    <Content Include="AdminLTE-3.0.4\ErrorTemplate\ErrorTemplate-main\readme.txt" />
     <Content Include="AdminLTE-3.0.4\index.html" />
     <Content Include="AdminLTE-3.0.4\index2.html" />
     <Content Include="AdminLTE-3.0.4\index3.html" />
@@ -2297,6 +2303,14 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\GetByMessage.cshtml" />
     <Content Include="Views\Contact\GetMessageMenu.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\ReceiverMessage.cshtml" />
+    <Content Include="Views\Message\SenderMessage.cshtml" />
+    <Content Include="Views\Message\NewMessage.cshtml" />
+    <Content Include="Views\Message\GetByMessage.cshtml" />
+    <Content Include="Views\ErrorPage\Error404.cshtml" />
+    <Content Include="Views\ErrorPage\Index.cshtml" />
+    <Content Include="Views\ErrorPage\Error403.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,12 +1,18 @@
-﻿@model EntityLayer.Concrete.Contact
+﻿@model EntityLayer.Concrete.Message
 @{
     ViewBag.Title = "GetByMessage";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<br />
-<h3>Gelen Mesaj</h3>
-<br />
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Mesajlar</h1>
+            </div>
+        </div>
+    </div>
+</section>
 
 <div class="wrapper">
     <!-- Navbar -->
@@ -29,11 +35,11 @@
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <div class="mailbox-read-info">
-                                <h5 class="text-bold">@Model.ContactSubject</h5>
+                                <h5 class="text-bold">@Model.MessageSubject</h5>
                                 <br />
                                 <h6>
-                                   @Model.UserEmail
-                                    <span class="mailbox-read-time float-right">@Model.ContactDate</span>
+                                    @Model.ReceiverMail
+                                    <span class="mailbox-read-time float-right">@Model.MessageDate</span>
                                 </h6>
                             </div>
                             <!-- /.mailbox-read-info -->
@@ -56,7 +62,7 @@
                             </div>
                             <!-- /.mailbox-controls -->
                             <div class="mailbox-read-message">
-                                <p>@Model.ContactMessage</p>
+                                @Model.MessageContent
                             </div>
                         </div>
                     </div>

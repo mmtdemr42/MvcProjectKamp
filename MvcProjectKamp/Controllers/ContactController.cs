@@ -27,8 +27,8 @@ namespace MvcProjectKamp.Controllers
         public PartialViewResult GetMessageMenu()
         {
             var contact = manager.List();
-
             return PartialView(contact);
         }
+
     }
 }
