@@ -147,6 +147,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageFileController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -316,6 +317,16 @@
     <Content Include="AdminLTE-3.0.4\ErrorTemplate\ErrorTemplate-main\img\bg.jpg" />
     <Content Include="AdminLTE-3.0.4\ErrorTemplate\ErrorTemplate-main\index.html" />
     <Content Include="AdminLTE-3.0.4\ErrorTemplate\ErrorTemplate-main\readme.txt" />
+    <Content Include="AdminLTE-3.0.4\images\amsterdam.jpg" />
+    <Content Include="AdminLTE-3.0.4\images\Berlin.jpg" />
+    <Content Include="AdminLTE-3.0.4\images\bosna.png" />
+    <Content Include="AdminLTE-3.0.4\images\Brüksel.png" />
+    <Content Include="AdminLTE-3.0.4\images\Edirne.png" />
+    <Content Include="AdminLTE-3.0.4\images\istanbul.png" />
+    <Content Include="AdminLTE-3.0.4\images\Konya.png" />
+    <Content Include="AdminLTE-3.0.4\images\kosova.png" />
+    <Content Include="AdminLTE-3.0.4\images\mardim.png" />
+    <Content Include="AdminLTE-3.0.4\images\paris.jpeg" />
     <Content Include="AdminLTE-3.0.4\index.html" />
     <Content Include="AdminLTE-3.0.4\index2.html" />
     <Content Include="AdminLTE-3.0.4\index3.html" />
@@ -2311,6 +2322,7 @@
     <Content Include="Views\ErrorPage\Error404.cshtml" />
     <Content Include="Views\ErrorPage\Index.cshtml" />
     <Content Include="Views\ErrorPage\Error403.cshtml" />
+    <Content Include="Views\ImageFile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
