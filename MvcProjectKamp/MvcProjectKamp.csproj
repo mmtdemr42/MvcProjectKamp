@@ -153,6 +153,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\TalentCardController.cs" />
+    <Compile Include="Controllers\WriterContentController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Controllers\WriterHeadingController.cs" />
     <Compile Include="Controllers\WriterMessageController.cs" />
@@ -2468,6 +2469,8 @@
     <Content Include="Views\WriterMessage\ReceiverMessage.cshtml" />
     <Content Include="Views\WriterMessage\NewMessage.cshtml" />
     <Content Include="Views\WriterMessage\GetByMessage.cshtml" />
+    <Content Include="Views\WriterContent\ContentByWriterHeadings.cshtml" />
+    <Content Include="Views\WriterContent\ContentByHeadings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
