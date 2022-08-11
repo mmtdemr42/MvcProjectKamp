@@ -152,6 +152,7 @@
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\TalentCardController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2020,6 +2021,17 @@
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.css" />
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.min.js" />
     <Content Include="AdminLTE-3.0.4\starter.html" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\images\5.jpg" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\images\img1.jpg" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\images\mehmet.png" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\images\sprite.png" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\index.html" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\js\bars.js" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\js\easyResponsiveTabs.js" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\js\jquery-1.11.1.min.js" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\js\jquery.circlechart.js" />
+    <Content Include="AdminLTE-3.0.4\TalentCard\w3layouts-License.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2441,6 +2453,7 @@
     <Content Include="Views\Draft\Index.cshtml" />
     <Content Include="Views\Draft\GetByMessage.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\TalentCard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

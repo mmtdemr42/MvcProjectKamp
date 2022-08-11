@@ -61,6 +61,7 @@
     <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ITalentDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repository\CategoryRepository.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
+    <Compile Include="EntityFramework\EfTalentDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202208021327127_mig1.cs" />
     <Compile Include="Migrations\202208021327127_mig1.designer.cs">
@@ -139,6 +141,14 @@
     <Compile Include="Migrations\202208110831199_contact_status.designer.cs">
       <DependentUpon>202208110831199_contact_status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208110915080_talent_added.cs" />
+    <Compile Include="Migrations\202208110915080_talent_added.designer.cs">
+      <DependentUpon>202208110915080_talent_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208110921309_talent_updated.cs" />
+    <Compile Include="Migrations\202208110921309_talent_updated.designer.cs">
+      <DependentUpon>202208110921309_talent_updated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -200,6 +210,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208110831199_contact_status.resx">
       <DependentUpon>202208110831199_contact_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208110915080_talent_added.resx">
+      <DependentUpon>202208110915080_talent_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208110921309_talent_updated.resx">
+      <DependentUpon>202208110921309_talent_updated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
