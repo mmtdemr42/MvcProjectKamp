@@ -1,0 +1,79 @@
+﻿@model EntityLayer.Concrete.Message
+
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<head>
+    <link href="~/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.css" rel="stylesheet" />
+</head>
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Yeni Mesaj Gönder</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Action("GetMessageMenu", "WriterMessage")
+            <!-- /.col -->
+            <div class="col-md-9">
+                @using (Html.BeginForm("NewMessage", "WriterMessage", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Yeni Mesaj Yaz</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.ReceiverMail, new { placeholder = "Kime", @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ReceiverMail)
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.MessageSubject, new { placeholder = "Mesaj Başlığı", @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.MessageSubject)
+                            </div>
+                            <div class="form-group">
+                                @*@Html.Label("Mesaj İçeriği")
+                                    @Html.TextAreaFor(m => m.MessageContent, new { @id = "compose-textarea", @class = "form-control"})
+                                    @Html.ValidationMessageFor(m => m.MessageContent)*@
+                                <textarea id="compose-textarea" name="MessageContent" class="form-control" style="height:300px">
+                                </textarea>
+                                @Html.ValidationMessageFor(m => m.MessageContent)
+                            </div>
+                            <div class="form-group">
+                                <div class="btn btn-default btn-file">
+                                    <i class="fas fa-paperclip"></i> Dosya Ekle
+                                    <input type="file" name="attachment">
+                                </div>
+                                <p class="help-block">Max. 32MB</p>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <div class="float-right">
+                                <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslak Olarak Ekle</button>
+                                <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                            </div>
+                            <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> Sil</button>
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                }
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+

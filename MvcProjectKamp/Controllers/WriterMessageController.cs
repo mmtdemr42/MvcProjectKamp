@@ -11,17 +11,23 @@ using System.Web.Mvc;
 
 namespace MvcProjectKamp.Controllers
 {
-    public class MessageController : Controller
+    public class WriterMessageController : Controller
     {
         MessageManager manager = new MessageManager(new EfMessageDal());
         MessageValidator validator = new MessageValidator();
         ValidationResult result;
-        // GET: Message
+        // GET: WriterMessage
         public ActionResult Index()
         {
             var message = manager.List();
             ViewBag.StatusMessageFalse = message.Where(m => m.MessageStatus == false).Count() == null ? 0 : message.Where(m => m.MessageStatus == false).Count();
             return View(message);
+        }
+
+        public PartialViewResult GetMessageMenu()
+        {
+            var message = manager.List();
+            return PartialView(message);
         }
 
         public ActionResult SenderMessage()
@@ -44,7 +50,7 @@ namespace MvcProjectKamp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ValidateInput(false)] 
+        [ValidateInput(false)]
         public ActionResult NewMessage(Message message)
         {
 
@@ -63,7 +69,7 @@ namespace MvcProjectKamp.Controllers
                 }
             }
             return View(message);
-        } 
+        }
 
         public ActionResult GetByMessage(int id)
         {
