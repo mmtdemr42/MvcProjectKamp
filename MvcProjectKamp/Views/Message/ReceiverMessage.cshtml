@@ -23,7 +23,7 @@
         <div class="col-md-9">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title">Gelen Kutusu</h3>
+                    <h3 class="card-title">Gelen Kutusu <b>(@ViewBag.StatusMessageFalse)</b></h3>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
@@ -84,7 +84,14 @@
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
                                             <td class="mailbox-name"><a href="/Message/GetByMessage/@message.MessageID">@message.SenderMail</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@message.MessageSubject</b>
+                                                @if (message.MessageStatus)
+                                                {
+                                                    <p>@message.MessageSubject</p>
+                                                }
+                                                else
+                                                {
+                                                    <b><strong>@message.MessageSubject</strong></b>
+                                                }
                                                 @if (message.MessageContent.Count() >= 100)
                                                 {
 

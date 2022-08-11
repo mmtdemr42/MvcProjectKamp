@@ -20,7 +20,7 @@ namespace MvcProjectKamp.Controllers
         public ActionResult Index()
         {
             var message = manager.List();
-            ViewBag.StatusMessageFalse = message.Where(m => m.MessageStatus == false).Count();
+            ViewBag.StatusMessageFalse = message.Where(m => m.MessageStatus == false).Count() == null ? 0 : message.Where(m => m.MessageStatus == false).Count();
             return View(message);
         }
 
@@ -33,6 +33,7 @@ namespace MvcProjectKamp.Controllers
         public ActionResult ReceiverMessage()
         {
             var message = manager.GetReceiverMessage();
+            ViewBag.StatusMessageFalse = manager.List().Where(m => m.MessageStatus == false).Count() == null ? 0 : message.Where(m => m.MessageStatus == false).Count();
             return View(message);
         }
 
@@ -67,6 +68,8 @@ namespace MvcProjectKamp.Controllers
         public ActionResult GetByMessage(int id)
         {
             var message = manager.GetByID(id);
+            message.MessageStatus = true;
+            manager.Update(message);
             return View(message);
         }
     }

@@ -15,12 +15,15 @@ namespace MvcProjectKamp.Controllers
         public ActionResult Index()
         {
             var contact = manager.ListOrderByDescending();
+            ViewBag.ContactstatusFalse = contact.Where(c => c.ContactStatus == false).Count() == null ? 0 : contact.Where(c => c.ContactStatus == false).Count();
             return View(contact);
         }
 
         public ActionResult GetByMessage(int id)
         {
             var message = manager.GetByID(id);
+            message.ContactStatus = true;
+            manager.Update(message);
             return View(message);
         }
 
