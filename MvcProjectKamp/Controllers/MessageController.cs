@@ -20,6 +20,7 @@ namespace MvcProjectKamp.Controllers
         public ActionResult Index()
         {
             var message = manager.List();
+            ViewBag.StatusMessageFalse = message.Where(m => m.MessageStatus == false).Count();
             return View(message);
         }
 
