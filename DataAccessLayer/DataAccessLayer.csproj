@@ -52,9 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
+    <Compile Include="Abstract\IDraftDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
     <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
@@ -64,9 +66,11 @@
     <Compile Include="Concrete\Repository\CategoryRepository.cs" />
     <Compile Include="Concrete\Repository\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContectDal.cs" />
+    <Compile Include="EntityFramework\EfDraftDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
     <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
@@ -119,6 +123,14 @@
     <Compile Include="Migrations\202208101457198_ImageFile_up.designer.cs">
       <DependentUpon>202208101457198_ImageFile_up.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208101726084_Admin_added.cs" />
+    <Compile Include="Migrations\202208101726084_Admin_added.designer.cs">
+      <DependentUpon>202208101726084_Admin_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208101731278_Draft_added.cs" />
+    <Compile Include="Migrations\202208101731278_Draft_added.designer.cs">
+      <DependentUpon>202208101731278_Draft_added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -168,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208101457198_ImageFile_up.resx">
       <DependentUpon>202208101457198_ImageFile_up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208101726084_Admin_added.resx">
+      <DependentUpon>202208101726084_Admin_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208101731278_Draft_added.resx">
+      <DependentUpon>202208101731278_Draft_added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
