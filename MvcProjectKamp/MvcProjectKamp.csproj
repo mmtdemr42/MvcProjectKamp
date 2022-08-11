@@ -153,6 +153,8 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\TalentCardController.cs" />
+    <Compile Include="Controllers\WriterController.cs" />
+    <Compile Include="Controllers\WriterHeadingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2454,6 +2456,11 @@
     <Content Include="Views\Draft\GetByMessage.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\TalentCard\Index.cshtml" />
+    <Content Include="Views\Shared\_WriterLayout.cshtml" />
+    <Content Include="Views\Writer\Index.cshtml" />
+    <Content Include="Views\WriterHeading\MyHeadings.cshtml" />
+    <Content Include="Views\WriterHeading\NewHeading.cshtml" />
+    <Content Include="Views\WriterHeading\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
