@@ -6,29 +6,29 @@
 
 <h2>Admin Kategori</h2>
 
-    <table class="table table-hover table-bordered table-striped table-condensed">
+<table class="table table-hover table-bordered table-striped table-condensed">
+    <tr class="text-center">
+        <th>Sıra</th>
+        <th> Kategori Adı</th>
+        <th> Kategori Açıklaması</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+        <th>Başlıklar</th>
+    </tr>
+
+    @foreach (var category in Model)
+    {
         <tr class="text-center">
-            <th>Sıra</th>
-            <th> Kategori Adı</th>
-            <th> Kategori Açıklaması</th>
-            <th>Güncelle</th>
-            <th>Sil</th>
-            <th>Başlıklar</th>
+            <th>@category.CategoryID</th>
+            <td>@category.CategoryName</td>
+            <td class="text-left">@category.CategoryDescription</td>
+            <td><a href="/AdminCategory/Edit/@category.CategoryID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/AdminCategory/Delete/@category.CategoryID" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-info">Başlıklar</a></td>
         </tr>
-
-        @foreach (var category in Model)
-        {
-            <tr class="text-center">
-                <th>@category.CategoryID</th>
-                <td>@category.CategoryName</td>
-                <td class="text-left">@category.CategoryDescription</td>
-                <td><a href="/AdminCategory/Edit/@category.CategoryID" class="btn btn-success">Güncelle</a></td>
-                <td><a href="/AdminCategory/Delete/@category.CategoryID" class="btn btn-danger">Sil</a></td>
-                <td><a href="#" class="btn btn-info">Başlıklar</a></td>
-            </tr>
-        }
-    </table>
-    
+    }
+</table>
 
 
-@Html.ActionLink("Kategori Ekle", "AddCategory", null, new { @class="btn btn-primary"})
+
+@Html.ActionLink("Kategori Ekle", "AddCategory", null, new { @class = "btn btn-primary" })

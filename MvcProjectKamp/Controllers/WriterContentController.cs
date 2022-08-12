@@ -11,10 +11,13 @@ namespace MvcProjectKamp.Controllers
     public class WriterContentController : Controller
     {
         ContentManager manager = new ContentManager(new EfContectDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
+        int writerId;
         // GET: WriterContent
-        public ActionResult ContentByWriterHeadings(int id)
+        public ActionResult ContentByWriterHeadings()
         {
-            var headings = manager.GetByWriterID(1003);
+            writerId = writerManager.GetWriter((string)Session["WriterEmail"]);
+            var headings= manager.GetByWriterContent(writerId);
             if (headings.Count() !=0)
             {
                 ViewBag.Name = headings.FirstOrDefault().Writer.WriterName;

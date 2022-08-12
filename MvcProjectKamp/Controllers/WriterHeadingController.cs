@@ -13,10 +13,15 @@ namespace MvcProjectKamp.Controllers
     {
         HeadingManager manager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
+        int writerId;
         // GET: WriterHeading
+
         public ActionResult MyHeadings()
         {
-            var headings = manager.GetByHeadings(1).Where(h=>h.HeadingStatus==true);
+            writerId = writerManager.GetWriter((string)Session["WriterEmail"]);
+            ViewBag.T = writerId;
+            var headings = manager.GetByHeadingsTrue(writerId);
             return View(headings);
         }
 
@@ -36,7 +41,9 @@ namespace MvcProjectKamp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult NewHeading(Heading heading)
         {
-            heading.WriterID = 1;
+            writerId = writerManager.GetWriter((string)Session["WriterEmail"]);
+            heading.WriterID = writerId;
+            heading.HeadingStatus = true;
             heading.HeadingDate = DateTime.Now;
             manager.Add(heading);
             return RedirectToAction("MyHeadings");

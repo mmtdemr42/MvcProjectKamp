@@ -21,5 +21,15 @@ namespace BusinessLayer.Concrete
         {
             return _manager.Get(w => w.WriterID == id);
         }
+
+        public int GetWriter(string email)
+        {
+            return _manager.List(w => w.WriterEmail == email).Select(a => a.WriterID).FirstOrDefault();
+        }
+
+        public Writer Login(string email, string password)
+        {
+            return _manager.List(w => w.WriterEmail == email && w.WriterPassword == password).FirstOrDefault();
+        }
     }
 }

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Content>
+@if (ViewBag.Heading == null)
+{
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <div class="alert alert-danger" role="alert">
+                        <h2 class="text-center">Herhangi bir içerik bulunamadı!</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+}
+else
+{
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <div class="alert alert-success" role="alert">
+                        <h3 class="text-center">@ViewBag.Heading</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+}
+
+
+@foreach (var content in Model)
+{
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="timeline">
+                            <div class="time-label">
+                                <span class="bg-success">  @(((DateTime)content.ContentDate).ToString("dd.MM.yyyy"))</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-comment bg-yellow"></i>
+                                <div class="timeline-item">
+                                    <h3 class="timeline-header"><a href="/WriterContent/ContentByWriterHeadings/@content.WriterID">@content.Writer.WriterName @content.Writer.WriterSurname</a> </h3>
+                                    <div class="timeline-body">
+                                        @content.ContentValue
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+}
+
+
+
+

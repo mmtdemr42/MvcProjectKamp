@@ -10,5 +10,7 @@ namespace BusinessLayer.Abstract
     interface IWriterService : IService<Writer>
     {
         Writer GetByID(int id);
+        Writer Login(string email, string password);
+        int GetWriter(string email);
     }
 }

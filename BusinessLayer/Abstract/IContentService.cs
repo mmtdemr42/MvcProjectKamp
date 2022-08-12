@@ -12,6 +12,7 @@ namespace BusinessLayer.Abstract
         Content GetByID(int id);
         List<Content> GetByHeadingID(int id);
         List<Content> GetByWriterID(int id);
+        List<Content> GetByWriterContent(int id);
 
     }
 }

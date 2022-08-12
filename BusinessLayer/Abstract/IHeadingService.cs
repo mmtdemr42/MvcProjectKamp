@@ -13,6 +13,6 @@ namespace BusinessLayer.Abstract
         int CategoryHeadingCount(int id);
         int HeadingFilter(string s);
         Heading GetByID(int id);
-        List<Heading> GetByHeadings(int id);
+        List<Heading> GetByHeadingsTrue(int id);
     }
 }

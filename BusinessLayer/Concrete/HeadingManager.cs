@@ -25,9 +25,9 @@ namespace BusinessLayer.Concrete
             return _headingDal.List().Where(h => h.CategoryID == id).Count();
         }
 
-        public List<Heading> GetByHeadings(int id)
+        public List<Heading> GetByHeadingsTrue(int id)
         {
-            return _headingDal.List(h => h.WriterID == id);
+            return _headingDal.List(h => h.WriterID == id).Where(h => h.HeadingStatus == true).ToList();
         }
 
         public Heading GetByID(int id)
@@ -42,3 +42,4 @@ namespace BusinessLayer.Concrete
         }
     }
 }
+  

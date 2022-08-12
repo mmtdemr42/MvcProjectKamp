@@ -10,6 +10,7 @@ using System.Web.Security;
 
 namespace MvcProjectKamp.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         AdminManager manager = new AdminManager(new EfAdminDal());
