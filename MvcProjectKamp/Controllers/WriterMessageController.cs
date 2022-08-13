@@ -20,7 +20,7 @@ namespace MvcProjectKamp.Controllers
         public ActionResult Index()
         {
             var message = manager.List();
-            ViewBag.StatusMessageFalse = message.Where(m => m.MessageStatus == false).Count() == null ? 0 : message.Where(m => m.MessageStatus == false).Count();
+            ViewBag.StatusMessageFalse = message.Where(m => m.MessageStatus == false).Count() == 0 ? 0 : message.Where(m => m.MessageStatus == false).Count();
             return View(message);
         }
 
@@ -32,14 +32,14 @@ namespace MvcProjectKamp.Controllers
 
         public ActionResult SenderMessage()
         {
-            var message = manager.GetSenderMessage();
+            var message = manager.GetSenderMessage((string)Session["WriterEmail"]);
             return View(message);
         }
 
         public ActionResult ReceiverMessage()
         {
-            var message = manager.GetReceiverMessage();
-            ViewBag.StatusMessageFalse = manager.List().Where(m => m.MessageStatus == false).Count() == null ? 0 : message.Where(m => m.MessageStatus == false).Count();
+            var message = manager.GetReceiverMessage((string)Session["WriterEmail"]);
+            ViewBag.StatusMessageFalse = manager.List().Where(m => m.MessageStatus == false).Count() ==0  ? 0 : message.Where(m => m.MessageStatus == false).Count();
             return View(message);
         }
 
@@ -58,6 +58,7 @@ namespace MvcProjectKamp.Controllers
             result = validator.Validate(message);
             if (result.IsValid)
             {
+                message.SenderMail= (string)Session["WriterEmail"];
                 manager.Add(message);
                 return RedirectToAction("SenderMessage");
             }

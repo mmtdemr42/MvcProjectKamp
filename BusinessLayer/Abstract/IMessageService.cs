@@ -9,8 +9,8 @@ namespace BusinessLayer.Abstract
 {
     public interface IMessageService : IService<Message>
     {
-        List<Message> GetSenderMessage();
-        List<Message> GetReceiverMessage();
+        List<Message> GetSenderMessage(string email);
+        List<Message> GetReceiverMessage(string email);
         Message GetByID(int id);
     }
 }

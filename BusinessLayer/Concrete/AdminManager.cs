@@ -18,6 +18,7 @@ namespace BusinessLayer.Concrete
             _manager = manager;
         }
 
+
         public Admin Login(string userName, string password)
         {
             return _manager.List(m => m.AdminName == userName && m.AdminPassword == password).FirstOrDefault();

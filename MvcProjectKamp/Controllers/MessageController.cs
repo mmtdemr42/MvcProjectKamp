@@ -15,25 +15,27 @@ namespace MvcProjectKamp.Controllers
     {
         MessageManager manager = new MessageManager(new EfMessageDal());
         MessageValidator validator = new MessageValidator();
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         ValidationResult result;
         // GET: Message
         public ActionResult Index()
         {
             var message = manager.List();
-            ViewBag.StatusMessageFalse = message.Where(m => m.MessageStatus == false).Count() == null ? 0 : message.Where(m => m.MessageStatus == false).Count();
+            ViewBag.StatusMessageFalse = message.Where(m => m.MessageStatus == false).Count() == 0 ? 0 : message.Where(m => m.MessageStatus == false).Count();
             return View(message);
         }
 
         public ActionResult SenderMessage()
         {
-            var message = manager.GetSenderMessage();
+
+            var message = manager.GetSenderMessage(Session["AdminEmail"].ToString());
             return View(message);
         }
 
         public ActionResult ReceiverMessage()
         {
-            var message = manager.GetReceiverMessage();
-            ViewBag.StatusMessageFalse = manager.List().Where(m => m.MessageStatus == false).Count() == null ? 0 : message.Where(m => m.MessageStatus == false).Count();
+            var message = manager.GetReceiverMessage(Session["AdminEmail"].ToString());
+            ViewBag.StatusMessageFalse = manager.List().Where(m => m.MessageStatus == false).Count() == 0 ? 0 : message.Where(m => m.MessageStatus == false).Count();
             return View(message);
         }
 
@@ -52,6 +54,7 @@ namespace MvcProjectKamp.Controllers
             result = validator.Validate(message);
             if (result.IsValid)
             {
+                message.SenderMail = Session["AdminEmail"].ToString();
                 manager.Add(message);
                 return RedirectToAction("SenderMessage");
             }

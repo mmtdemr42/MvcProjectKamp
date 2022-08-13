@@ -28,7 +28,9 @@ namespace MvcProjectKamp.Controllers
             if (Admin != null)
             {
                 FormsAuthentication.SetAuthCookie(admin.AdminName, false);
-                Session["AdminName"] = admin.AdminName;
+                Session["AdminName"] = Admin.AdminName;
+               
+                Session.Add("AdminEmail", Admin.AdminEmail);
                 return RedirectToAction("../AdminCategory");
             }
             else
