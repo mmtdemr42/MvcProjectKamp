@@ -8,6 +8,10 @@ Asp .Net Mvc web teknolojilerinde büyüyen projelerden ve yazılan kod sayılar
 <strong>View</strong>: Ekranı yani görünümün sağlandığı kısımdır.<br/>
 <strong>Controller</strong>: Kullanıcıdan gelen istekleri karşılayan ve bu isteklere göre gerekli işlemlerin yapılarak View'a yansıtılmasını sağlayan kısımdır. Controller sınıfından inheritance alır. İçerisinde yer alan ActionResult methotları sayesinde istekleri karşılar. İsteği karşılayan contoller gelen isteğe göre işlemleri yapar ve geriye View döndürür.
 <br/>
-![image](https://user-images.githubusercontent.com/89140860/184472183-414e8e2a-2397-4b56-956e-d55e7854fc88.png)<br/>
+
+![image](https://user-images.githubusercontent.com/89140860/184472183-414e8e2a-2397-4b56-956e-d55e7854fc88.png)
+
+<br/>
+
 ![image](https://user-images.githubusercontent.com/89140860/184471653-5d9b4ad3-3ce1-4f1a-8e15-0b0d623cd77e.png)
 
