@@ -14,5 +14,6 @@ namespace BusinessLayer.Abstract
         int HeadingFilter(string s);
         Heading GetByID(int id);
         List<Heading> GetByHeadingsTrue(int id);
+        List<Heading> GetBySearchHeadings(string value);
     }
 }

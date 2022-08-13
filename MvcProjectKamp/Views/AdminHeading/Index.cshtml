@@ -18,16 +18,32 @@
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Başlık İşlemleri</h3>
+        <div class="row ">
+            <h3 class="card-title col-md-4">Başlık İşlemleri</h3>
+            <div class="col-md-4">
+                @using (Html.BeginForm("Index", "AdminHeading", FormMethod.Post))
+                {
+                    <p>
+                        Başlık Ara: @Html.TextBox("value")
+                        <input class="btn btn-s btn-success" type="submit" value="Başlık Ara" />
+                    </p>
+                }
+                
+            </div>
+            <div class="col-md-4 d-flex justify-content-end">
+                <div class="card-tools">
 
-        <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
         </div>
+       
+       
     </div>
     <div class="card-body p-0">
         <table class="table table-striped projects">

@@ -17,9 +17,14 @@ namespace MvcProjectKamp.Controllers
         WriterManager writerManager = new WriterManager(new EfWriterDal());
         ValidationResult result;
         // GET: AdminHeading
-        public ActionResult Index()
+        public ActionResult Index(string value)
         {
-            return View(manager.List());
+            var headings = manager.List();
+            if (!string.IsNullOrEmpty(value))
+            {
+                headings = manager.GetBySearchHeadings(value);
+            }
+            return View(headings);
         }
 
         public ActionResult AddHeading()
@@ -88,5 +93,17 @@ namespace MvcProjectKamp.Controllers
             manager.Update(heading);
             return RedirectToAction("Index");
         }
+
+        //[HttpPost]
+        //public ActionResult SearchHeading()
+        //{
+           
+        //    if (!string.IsNullOrEmpty(value))
+        //    {
+        //        var headings = manager.GetBySearchHeadings(value);
+        //        return RedirectToAction("Index", headings);
+        //    }
+        //    return RedirectToAction("Index");
+        //}
     }
 }

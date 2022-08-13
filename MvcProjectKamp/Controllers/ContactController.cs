@@ -15,7 +15,7 @@ namespace MvcProjectKamp.Controllers
         public ActionResult Index()
         {
             var contact = manager.ListOrderByDescending();
-            ViewBag.ContactstatusFalse = contact.Where(c => c.ContactStatus == false).Count() == null ? 0 : contact.Where(c => c.ContactStatus == false).Count();
+            ViewBag.ContactstatusFalse = contact.Where(c => c.ContactStatus == false).Count() == 0 ? 0 : contact.Where(c => c.ContactStatus == false).Count();
             return View(contact);
         }
 
@@ -32,6 +32,5 @@ namespace MvcProjectKamp.Controllers
             var contact = manager.List();
             return PartialView(contact);
         }
-
     }
 }

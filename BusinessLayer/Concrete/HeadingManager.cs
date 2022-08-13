@@ -35,6 +35,10 @@ namespace BusinessLayer.Concrete
             return _headingDal.Get(h => h.HeadingID == id);
         }
 
+        public List<Heading> GetBySearchHeadings(string value)
+        {
+            return _headingDal.List(h => h.HeadingName.Contains(value));
+        }
 
         public int HeadingFilter(string s)
         {
