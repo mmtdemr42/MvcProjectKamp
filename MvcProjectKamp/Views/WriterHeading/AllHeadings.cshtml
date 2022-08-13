@@ -1,0 +1,128 @@
+﻿@model PagedList.IPagedList<EntityLayer.Concrete.Heading>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "AllHeadings";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+
+@{ string color = "";
+    int desk = ViewBag.desk;
+}
+
+<head>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+</head>
+
+<div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-12">
+            <h1>@ViewBag.T Başlıklar</h1>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Başlık İşlemleri</h3>
+
+        <div class="card-tools">
+            <a class="btn btn-primary" href="/WriterHeading/NewHeading">Yeni Başlık Ekle</a>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-striped projects">
+            <thead>
+                <tr>
+                    <th style="width: 1%">
+                        Sıra
+                    </th>
+                    <th style="width: 25%">
+                        Başlık
+                    </th>
+                    <th style="width: 10%" class="text-center">
+                        Yazar
+                    </th>
+
+                    <th style="width: 20%" class="text-center">
+                        Kategori
+                    </th>
+                    <th style="width: 20%">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var heading in Model)
+                {
+                    if (heading.Category.CategoryID == 1)
+                    {
+                        color = "badge badge-success";
+                    }
+                    else if (heading.Category.CategoryID == 2)
+                    {
+                        color = "badge badge-warning";
+                    }
+                    else if (heading.Category.CategoryID == 3)
+                    {
+                        color = "badge badge-danger";
+                    }
+                    else
+                    {
+                        color = "badge badge-primary";
+                    }
+                    <tr>
+                        <td>
+
+                            @desk
+                            @{ desk = desk + 1;}
+                        </td>
+                        <td>
+                            <a>
+                                @heading.HeadingName
+                            </a>
+                            <br />
+                            <small>
+                                @(((DateTime)heading.HeadingDate).ToString("dd.MM.yyyy"))
+                            </small>
+                        </td>
+                        <td>
+                            <ul class="list-inline text-center">
+                                <li class="list-inline-item">
+                                    <img alt="Avatar" class="table-avatar" src="@heading.Writer.WriterImage">
+                                    <p class="mt-1">@heading.Writer.WriterName @heading.Writer.WriterSurname</p>
+                                </li>
+                            </ul>
+                        </td>
+
+                        <td class="project-state align-self-center">
+                            <span class="@color"> @heading.Category.CategoryName</span>
+                        </td>
+                        <td class="project-actions text-right">
+                            <a class="btn btn-primary btn-sm" href="/Default/Headings/@heading.HeadingID">
+                                <i class="fas fa-folder">
+                                </i>
+                                Yazılar
+                            </a>
+                            <a class="btn btn-success btn-sm" href="/WriterContent/NewContent">
+                                <i class="fas fa-pencil-alt">
+                                </i>
+                                Yazı Ekle
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("AllHeadings", new { page, desk }))
+
+

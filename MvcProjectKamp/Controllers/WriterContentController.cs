@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace MvcProjectKamp.Controllers
     {
         ContentManager manager = new ContentManager(new EfContectDal());
         WriterManager writerManager = new WriterManager(new EfWriterDal());
+        HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         int writerId;
         // GET: WriterContent
         public ActionResult ContentByWriterHeadings()
@@ -36,5 +38,31 @@ namespace MvcProjectKamp.Controllers
             }
             return View(headings);
         }
+
+        public ActionResult NewContent()
+        {
+            List<SelectListItem> valueHeading = (from heading in headingManager.List()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = heading.HeadingName,
+                                                      Value = heading.HeadingID.ToString(),
+                                                  }).ToList();
+            ViewBag.valueHeading = valueHeading;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult NewContent(Content content)
+        {
+            writerId = writerManager.GetWriter((string)Session["WriterEmail"]);
+            content.WriterID = writerId;
+            content.ContentDate = DateTime.Now;
+            content.ContentStatus = true;
+            manager.Add(content);
+            return RedirectToAction("ContentByWriterHeadings");
+
+        }
+
     }
 }

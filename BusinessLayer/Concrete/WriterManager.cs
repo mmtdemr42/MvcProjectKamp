@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace BusinessLayer.Concrete
 {
@@ -30,6 +31,11 @@ namespace BusinessLayer.Concrete
         public Writer Login(string email, string password)
         {
             return _manager.List(w => w.WriterEmail == email && w.WriterPassword == password).FirstOrDefault();
+        }
+
+        public void LogOut()
+        {
+            FormsAuthentication.SignOut();
         }
     }
 }

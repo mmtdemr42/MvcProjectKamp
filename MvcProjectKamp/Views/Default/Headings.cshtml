@@ -61,7 +61,7 @@ to get the desired effect
                         @foreach (var heading in Model)
                         {
                             <li class="nav-item has-treeview">
-                                <a href="/AdminCategory" class="nav-link">
+                                <a href="/Default/Headings/@heading.HeadingID" class="nav-link">
                                     @if (heading.HeadingName.Count() >= 27)
                                     {
                                         <p>

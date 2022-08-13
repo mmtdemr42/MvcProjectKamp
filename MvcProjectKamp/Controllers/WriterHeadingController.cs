@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MvcProjectKamp.Controllers
 {
@@ -78,6 +80,25 @@ namespace MvcProjectKamp.Controllers
             heading.HeadingStatus = false;
             manager.Update(heading);
             return RedirectToAction("MyHeadings");
+        }
+
+        public ActionResult AllHeadings(int page = 1)
+        {
+            for (int i = 1; i < manager.List().Count() / 4; i++)
+            {
+
+                if (page == 1)
+                {
+                    ViewBag.desk = page;
+
+                }
+                else
+                {
+                    ViewBag.desk = page + 4;
+                }
+            }
+            var headings = manager.List().ToPagedList(page, 5);
+            return View(headings);
         }
     }
 }

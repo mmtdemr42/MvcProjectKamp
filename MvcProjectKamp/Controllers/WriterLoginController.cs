@@ -37,5 +37,12 @@ namespace MvcProjectKamp.Controllers
             }
             return View();
         }
+
+        public ActionResult LogOut()
+        {
+            manager.LogOut();
+            Session.Abandon();
+            return RedirectToAction("Headings", "Default");
+        }
     }
 }

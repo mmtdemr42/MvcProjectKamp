@@ -13,9 +13,9 @@ namespace MvcProjectKamp.Controllers
         HeadingManager manager = new HeadingManager(new EfHeadingDal());
         ContentManager contentManager = new ContentManager(new EfContectDal());
         // GET: Default
-        public PartialViewResult Index()
+        public PartialViewResult Index(int id=0)
         {
-            var contents = contentManager.List();
+            var contents = contentManager.GetByHeadingID(id);
             ViewBag.Heading = contents.Select(a => a.Heading.HeadingName).FirstOrDefault();
             return PartialView(contents);
         }

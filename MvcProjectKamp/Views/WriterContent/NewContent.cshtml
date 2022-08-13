@@ -1,0 +1,39 @@
+﻿@model EntityLayer.Concrete.Content
+@{
+    ViewBag.Title = "NewContent";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>İçerik Ekle</h1>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+@using (Html.BeginForm("NewContent", "WriterContent", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+
+        @Html.Label("Başlık")
+        @Html.DropDownListFor(h => h.HeadingID, (List<SelectListItem>)ViewBag.valueHeading, new { @class = "form-control" })
+        <br />
+        @Html.Label("İçerik")
+        @Html.TextAreaFor(x => x.ContentValue,10,30,new {  @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ContentValue)
+        <br />
+        <button class="btn btn-success">
+            Ekle
+        </button>
+    </div>
+}
+
+
+
+
