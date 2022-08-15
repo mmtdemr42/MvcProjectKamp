@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace BusinessLayer.Concrete
 {
@@ -26,6 +27,11 @@ namespace BusinessLayer.Concrete
         public Admin Login(string userName, string password)
         {
             return _manager.List(m => m.AdminName == userName && m.AdminPassword == password).FirstOrDefault();
+        }
+
+        public void LogOut()
+        {
+            FormsAuthentication.SignOut();
         }
     }
 }

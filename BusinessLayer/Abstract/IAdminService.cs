@@ -11,5 +11,6 @@ namespace BusinessLayer.Abstract
     {
         Admin Login(string userName, string password);
         Admin GetByID(int id);
+        void LogOut();
     }
 }
