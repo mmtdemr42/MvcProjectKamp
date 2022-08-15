@@ -94,16 +94,10 @@ namespace MvcProjectKamp.Controllers
             return RedirectToAction("Index");
         }
 
-        //[HttpPost]
-        //public ActionResult SearchHeading()
-        //{
-           
-        //    if (!string.IsNullOrEmpty(value))
-        //    {
-        //        var headings = manager.GetBySearchHeadings(value);
-        //        return RedirectToAction("Index", headings);
-        //    }
-        //    return RedirectToAction("Index");
-        //}
+        public ActionResult Report()
+        {
+            var headings = manager.List();
+            return View(headings);
+        }
     }
 }
