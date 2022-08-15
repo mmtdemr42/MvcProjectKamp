@@ -16,7 +16,6 @@ namespace MvcProjectKamp.Controllers
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         CategoryValidator categoryValidator = new CategoryValidator();
         // GET: AdminCategory
-        [Authorize(Roles ="A")]
         public ActionResult Index()
         {
             return View(categoryManager.List());

@@ -18,6 +18,10 @@ namespace BusinessLayer.Concrete
             _manager = manager;
         }
 
+        public Admin GetByID(int id)
+        {
+            return _manager.Get(a => a.AdminID == id);
+        }
 
         public Admin Login(string userName, string password)
         {

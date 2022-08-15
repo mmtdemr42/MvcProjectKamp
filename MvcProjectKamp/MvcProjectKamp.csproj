@@ -145,6 +145,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminAboutController.cs" />
+    <Compile Include="Controllers\AdminAuthorizedController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminChartController.cs" />
     <Compile Include="Controllers\AdminContentController.cs" />
@@ -2676,6 +2677,9 @@
     <Content Include="Views\AdminChart\HeadingContent.cshtml" />
     <Content Include="Views\AdminChart\LineChart.cshtml" />
     <Content Include="Views\AdminHeading\Report.cshtml" />
+    <Content Include="Views\AdminAuthorized\Index.cshtml" />
+    <Content Include="Views\AdminAuthorized\AddAdmin.cshtml" />
+    <Content Include="Views\AdminAuthorized\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
     public interface IAdminService : IService<Admin>
     {
         Admin Login(string userName, string password);
+        Admin GetByID(int id);
     }
 }
