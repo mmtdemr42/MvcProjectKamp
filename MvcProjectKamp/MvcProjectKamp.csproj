@@ -146,6 +146,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminAboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\AdminChartController.cs" />
     <Compile Include="Controllers\AdminContentController.cs" />
     <Compile Include="Controllers\AdminHeadingController.cs" />
     <Compile Include="Controllers\AdminWriterController.cs" />
@@ -168,6 +169,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryHeadingCount.cs" />
+    <Compile Include="Models\HeadingContentCount.cs" />
+    <Compile Include="Models\HeadingDateCount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2668,10 +2672,12 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\WriterHeading\AllHeadings.cshtml" />
     <Content Include="Views\WriterContent\NewContent.cshtml" />
+    <Content Include="Views\AdminChart\Index.cshtml" />
+    <Content Include="Views\AdminChart\HeadingContent.cshtml" />
+    <Content Include="Views\AdminChart\LineChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
