@@ -73,7 +73,7 @@ Viewda tanımlaması:
 Parçalayarak modelleme anlamına gelir. Layout sayesinde sayfa bazında tanımlamayabiliyoruz. PartialView sayesinde ise birden fazla sayfada kullanılan yapıları bir yerde tanımlayıp Html helper komutları sayesinde diğer yerlerde de kullanmamıza olanak sağlar.
 
 <h3>Partial View Nasıl Kullanılır?</h3>
-Controller içinde ActionResult dönen method yerine PartialViewResult dönen bir method yazılır. Bu method View yerine PartialView döndürür. PartialView'ın üzerine gelinir sağ tıklanır ve Add Viewe tıklanır. Gelen sayfada create partial view seçilir ve partial view tanımlanmış olur. Viewlarda olduğu gibi partialView sayfasının da bir tane model alması gerekmektedir. Bir örneği aşağıdan ulaşabilirsiniz.
+Controller içinde ActionResult dönen method yerine PartialViewResult dönen bir method yazılır. Bu method View yerine PartialView döndürür. PartialView'ın üzerine gelinir sağ tıklanır ve Add Viewe tıklanır. Gelen sayfada create partial view seçilir ve partial view tanımlanmış olur. Viewlarda olduğu gibi partialView sayfasının da bir tane model alması gerekmektedir. Bir örneğine aşağıdan ulaşabilirsiniz.
 
  <a href="https://github.com/mmtdemr42/MvcProjectKamp/blob/main/MvcProjectKamp/Controllers/WriterMessageController.cs">Örnek Controller</a>
  
@@ -85,9 +85,52 @@ Controller içinde ActionResult dönen method yerine PartialViewResult dönen bi
 
 
 <h3>Model Nedir?</h3>
-Viewe yönlendirilecek verilerin ya da veritabanına yapılacak olan kayıtların paketlenmesi amacıyla kullanılır. Viewe bir tane veri seti gönderilecekse @model Models.model şeklinde gönderilir. Birden fazla gönderilecekse bu yöntem kullanılmaz o zmaan multiple object in model yapısı kullanılır.
+Viewe yönlendirilecek verilerin ya da veritabanına yapılacak olan kayıtların paketlenmesi amacıyla kullanılır. Viewe bir tane veri seti gönderilecekse @model Models.model şeklinde gönderilir. Birden fazla gönderilecekse bu yöntem kullanılmaz o zaman multiple object in model yapısı kullanılır.
 
 <h3>Multiple Objects In Model Nedir?</h3>
 Viewe birden fazla dataseti gönderilecekse bu yapı kullanılır. Birtane model sınıfı tanımlanır ve bu model sınıfıana gerekli sınıflar liste şeklinde property olarak tanımlanır. Viewde de bu model çağırılır, @model Models.ÇokluModelAdı şeklinde viewe model olarak verilir.
 
+ <h1>HTTP Protokolü</h1>
+ 1990 yılından beri dünya çapında ağ üzerinde kullanılan bir iletişim protokolüdür. HTTP‘nin açılımı “Hyper Text Transfer Protocol” yani “Hiper Metin Transfer Protokolü“dür. HTTP protokolü ağ üzerinden web sayfalarının görüntülenmesini sağlayan protokoldür. HTTP protokolü istemci (PC) ile sunucu (server) arasındaki alışveriş kurallarını belirler. Port olarak ise 80 portunu kullanır. İstemci sunucuya bir istek gönderir. Bu istek Internet Explorer, Google Chrome veya Mozilla Firefox gibi web browser’lar aracılığıyla iletilir. Sunucu bu isteği alır ve Apache veya IIS gibi web sunucu programları aracılığıyla cevap verir.
+
+<h3>Http Methotları</h3>
+1. HttpGet => Okuma <br/>
+2. HttpPost => Kayıt Etme<br/>
+3. HttpPut => Güncelleme<br/>
+4. HttpDelete => Silme <br/>
+Bu işlemlerin tamamına CRUD işlemler adı verilir.
+
+
+ActionMethotlarda Get methodu View okuma amcıyla kullanılır Viewde bir arama, kayıt işlemi olması halinde post işlemi kullanılır. Formun doldurulabilmesi için ilk önce sayfanın yüklenmesi gerekir bundan dolayı da HttpGet methodunun, sayfadaki formu doldurduktan sonra ise post methodunun çalışması gerekir bundan dolayı da kayıt işemleri gibi post gerektiren işlemlerde sayfa yüklenmesi için get formun kayıt edilebilmesi içinse post methodu gerekmektedir. 
+
+![image](https://user-images.githubusercontent.com/89140860/184937744-df06da50-b356-41ff-bb61-7c96100adf8c.png)
+
+Aynı durum güncellem işlemi için de geçerlidir. İlk önce güncellenmek istenen veri ekrana getirilmeli daha sonra değişiklikler yapılınca veri kayıt edilmelidir. Yukardaki gibi burada da hem get hem de post methodunun yazılması gerekmektedir.
+
+![image](https://user-images.githubusercontent.com/89140860/184938116-7936959b-9b52-4757-8392-b79384d806b9.png)
+
+Form Oluşturma Örneği:
+
+![image](https://user-images.githubusercontent.com/89140860/184939907-5f81482e-a660-4fd6-aa84-2847b103474c.png)
+
+1. Html.ValidationSummary() => Veri girişinde bir hata olamsı halinde kullanıcıyı bilgilendirme amacıyla kullanılır.
+2. Html.BeginForm => Form tanımlama amacıyla kullanılır. Html.BeginForm("ActionMethodAdı", "ControllerAdı", FormMethod.işlemegöre(post, get...))
+3. Html.AntiForgeryToken() => üretilen bir key actionmethoda gönderilir ve güvenlik açısından önemlidir.
+4. Html.Label => Label tanımlamak amacıyla kullanılır.
+5. Html.TextBoxFor => Tek satırlık veri girişi için kullanılır, inputta kullanılabilir.
+6. Html.TextAreaFor => Birden fazla satırlık veri girişi için kullanılır.
+7. Html.ValidationMessageFor(x => x.CategoryDescription) => CategoryDescription'a ait veri girişinde hata olması halinde kullanıcıya bilgi vermesi amacıyla kullanılır.
+8. Html.ActionLink => Sayfalar arası geçiş amacıyla kullanılır: 
+
+![image](https://user-images.githubusercontent.com/89140860/184941245-93a11d00-3dba-4ce6-9bee-32fc47ee7034.png)
+
+<h4>Form İşlemleri Özet:</h4>
+1. Get methodu ile sayfa yüklenir.
+2. Form tanımlanır.
+3. Formun kaydet düğmesine basıldığı zaman post işlemi çağrılır bu action methoda biligiler paketlenerek gönderilir.
+4. Hata olmaması halinde kayıt işelmi gerçekleşir.
+5. Kullanıcı listeleme sayfasına yönlendirilir.
+
+<h3>Model Binding Nedir?</h3>
+Formdan paketlenerek gelen bilgiler viewe verilen modele göre yapılır kayıt işemi de buna göre yapılır. Bu olaya model binding denir. Güncelleme işlemlerinde farklı model tanımlayarak sadece güncellenecek yerler verilerek buna göre bir işlem yapılabilir.
 
