@@ -39,7 +39,19 @@ inheritance alır. İçerisinde yer alan ActionResult methotları sayesinde iste
  Web sayfalarında sayfalar değişse bile değişmeyen yerlerin sadece bir yerde tanımlanarak kullanmamıza olanak sağlayan yapıdır. Bu yapı bize kod tekrarını azaltmamızı, kod okunabilirliğinin azaltılmasına ve yapılacak hataların önüne geçmemize olanak sağlar.
  
   <h3>Layout Nasıl Kullanılır?</h3>
-  Layoutun ortak bir dil oluşturmak amacıyla ~/Views/Shared/_Layout.csthtml şeklinde tanımlanması önerilmektedir. Proje oluşturulurken otomatik olarak(css, bootstrap, jquary gibi kütüphanelerinide tanımlayarak) bu yapı oluşur. 
+  Layoutun ortak bir dil oluşturmak amacıyla ~/Views/Shared/_Layout.csthtml şeklinde tanımlanması önerilmektedir. Proje oluşturulurken otomatik olarak(css, bootstrap, jquary gibi kütüphanelerinide tanımlayarak) bu yapı oluşur. Burada tanımlanan Layout diğer sayfalarda nereden Layout alacağını tanımlamasak bile defult olarak bu Layoutu temel olarak alır. (Layout kullanmak istemezsek kullanmak istemediğimiz .cshtml uzantılı dosyanın en başına @{Layout=null;} kodunu eklememiz gerekmektedir.)
+Birden fazla sayfada kullanılırken değişecek olan yerler için <strong>@RenderBody()</strong> komutu değişmesini istediğimiz yere yazılır. Kısaca RenderBody diğer sayfalarda değişecek olan alanı temsil eder. Diğer sayfalarda html iskeletini tekrar yazıp css gibi frontend elemanlarını tekrar tanımlamak yerine sadece o sayafada değişecek olan alan için kod yazılır. Bu da bizi kod tekrarından kurtarır ve kodu düzenlememizi kolaylaştırır.
 
+ <h3>Razor Nedir?</h3>
+ C# uygulamalarını html iskletinde kullanmamızı sağlar.
+ 
+ Örneğin: 
+ 
+ ![image](https://user-images.githubusercontent.com/89140860/184867830-dabe24a8-af7f-4acf-8856-33faeed3eed8.png)
+ 
+ Viewlerin içindeki yapılar razor sayesinde dinamik hale getirlir.
+ 
+ 
+ 
 
 
