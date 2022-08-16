@@ -46,7 +46,6 @@ inheritance alır. İçerisinde yer alan ActionResult methotları sayesinde iste
   Layoutun ortak bir dil oluşturmak amacıyla ~/Views/Shared/_Layout.csthtml şeklinde tanımlanması önerilmektedir. Proje oluşturulurken otomatik olarak(css, bootstrap, jquary gibi kütüphanelerinide tanımlayarak) bu yapı oluşur. Burada tanımlanan Layout diğer sayfalarda nereden Layout alacağını tanımlamasak bile defult olarak bu Layoutu temel olarak alır. (Layout kullanmak istemezsek kullanmak istemediğimiz .cshtml uzantılı dosyanın en başına @{Layout=null;} kodunu eklememiz gerekmektedir.)
 Birden fazla sayfada kullanılırken değişecek olan yerler için <strong>@RenderBody()</strong> komutu değişmesini istediğimiz yere yazılır. Kısaca RenderBody diğer sayfalarda değişecek olan alanı temsil eder. Diğer sayfalarda html iskeletini tekrar yazıp css gibi frontend elemanlarını tekrar tanımlamak yerine sadece o sayafada değişecek olan alan için kod yazılır. Bu da bizi kod tekrarından kurtarır ve kodu düzenlememizi kolaylaştırır.
 
-
  <h3>Razor Nedir?</h3>
  C# konutlarını html iskeletinde kullanmamıza olanak sağlar.
  
@@ -55,6 +54,20 @@ Birden fazla sayfada kullanılırken değişecek olan yerler için <strong>@Rend
  ![image](https://user-images.githubusercontent.com/89140860/184867830-dabe24a8-af7f-4acf-8856-33faeed3eed8.png)
  
  Viewlerin içindeki yapılar razor sayesinde dinamik hale getirlir.
+<h3>Section Nedir?</h3>
+Laytoutu dinamik hale getirmek amacıyla kullanılır. Layoutu bazı yerlerde col-md-8 ve col-md-4 bazı yerlerde işse col-md-12 olarak kullanmak istediğimiz zaman kullandığımız yapıdır. Section ile işaretlediğimiz yere Sectiondan gelen veriler diğer yere ise RenderBodyden gelen veriler aktarılmış olur.
+
+Layoutta kullanımı:
+
+![image](https://user-images.githubusercontent.com/89140860/184934531-ad5506b1-5a21-4dcb-96ca-a53a917e9234.png)
+
+Viewda tanımlaması:
+
+![image](https://user-images.githubusercontent.com/89140860/184934754-ffeccaef-9921-4ddb-b547-a5e737a208a0.png)
+
+
+
+
  
  <h3>Partial View Nedir?</h3>
 Parçalayarak modelleme anlamına gelir. Layout sayesinde sayfa bazında tanımlamayabiliyoruz. PartialView sayesinde ise birden fazla sayfada kullanılan yapıları bir yerde tanımlayıp Html helper komutları sayesinde diğer yerlerde de kullanmamıza olanak sağlar.
@@ -71,5 +84,10 @@ Controller içinde ActionResult dönen method yerine PartialViewResult dönen bi
 ![image](https://user-images.githubusercontent.com/89140860/184889622-c9c072bb-165c-4347-8072-7d18b4f520b2.png)
 
 
+<h3>Model Nedir?</h3>
+Viewe yönlendirilecek verilerin ya da veritabanına yapılacak olan kayıtların paketlenmesi amacıyla kullanılır. Viewe bir tane veri seti gönderilecekse @model Models.model şeklinde gönderilir. Birden fazla gönderilecekse bu yöntem kullanılmaz o zmaan multiple object in model yapısı kullanılır.
+
+<h3>Multiple Objects In Model Nedir?</h3>
+Viewe birden fazla dataseti gönderilecekse bu yapı kullanılır. Birtane model sınıfı tanımlanır ve bu model sınıfıana gerekli sınıflar liste şeklinde property olarak tanımlanır. Viewde de bu model çağırılır, @model Models.ÇokluModelAdı şeklinde viewe model olarak verilir.
 
 
