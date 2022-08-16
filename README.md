@@ -151,12 +151,14 @@ Veritabanı işlemlerinin yapılamsı amacıyla kullanılır. Daha önce klasik 
 10. DbContext için herhangi bir adres tanımlaması yapılmadıysa localhosta olmaması halinde yeni bir veritabanı oluşturur.<br/>
 11. Connection string tanımlaması yapılması halinde istediğimiz yerde veritabanının oluşmasını sağlayabiliriz. <br/>
 12. Web.config dosyası açılır.<br/>
-13. Buraya server adı, kullanıcı adı, şifre girilerek server oluşturulmuş olur.<br/>
-14.  
-<connectionStrings>
-    <add connectionString="server=(localdb)\MSSQLLocalDB;database=BlogDatabase;integrated security=SSPI;" name="BlogDatabase" providerName="System.Data.SqlClient" />
- </connectionStrings> şeklinde tanımlama yapılır.<br/>
- 15. name="BlogDatabase" tanımlanabilmesi için DbContexten kalıtım alan sınıfa yani ÖrnekContext'in constructruna base olarak bu ismin verilemsi gerekmektedir.
+13. Buraya server adı, kullanıcı adı, şifre girilerek server tanımlaması yapılır.<br/>
+14. Örnekteki gibi tanımlama yapılır. 
+
+![image](https://user-images.githubusercontent.com/89140860/184947652-68fbbdc7-91bb-45fe-b866-7f774eab8992.png)
+
+<a href = "https://github.com/mmtdemr42/MvcProjectKamp/blob/441b4bbdbfb6246f0a32832a9ad7a560a8dffd3d/MvcProjectKamp/Web.config#L34">Örnek Web Config</a>
+
+ 15. name="BlogDatabase" tanımlanabilmesi için DbContexten kalıtım alan sınıfa yani ÖrnekContext'in constructruna base olarak bu ismin verilmesi gerekmektedir.
  
  ![image](https://user-images.githubusercontent.com/89140860/184946793-d05a9a06-7d75-4e1e-b427-e8a3f0bdabcf.png)
 
