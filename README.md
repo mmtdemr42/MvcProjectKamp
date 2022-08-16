@@ -125,12 +125,42 @@ Form Oluşturma Örneği:
 ![image](https://user-images.githubusercontent.com/89140860/184941245-93a11d00-3dba-4ce6-9bee-32fc47ee7034.png)
 
 <h4>Form İşlemleri Özet:</h4>
-1. Get methodu ile sayfa yüklenir.
-2. Form tanımlanır.
-3. Formun kaydet düğmesine basıldığı zaman post işlemi çağrılır bu action methoda biligiler paketlenerek gönderilir.
-4. Hata olmaması halinde kayıt işelmi gerçekleşir.
-5. Kullanıcı listeleme sayfasına yönlendirilir.
+1. Get methodu ile sayfa yüklenir.<br/>
+2. Form doldurulur.<br/>
+3. Formun kaydet düğmesine basıldığı zaman post işlemi çağrılır bu action methoda bilgiler paketlenerek gönderilir.<br/>
+4. Hata olmaması halinde kayıt işelmi gerçekleşir.<br/>
+5. Kullanıcı listeleme sayfasına yönlendirilir.<br/>
 
 <h3>Model Binding Nedir?</h3>
 Formdan paketlenerek gelen bilgiler viewe verilen modele göre yapılır kayıt işemi de buna göre yapılır. Bu olaya model binding denir. Güncelleme işlemlerinde farklı model tanımlayarak sadece güncellenecek yerler verilerek buna göre bir işlem yapılabilir.
+
+<h1>Entity Framework</h1>
+Veritabanı işlemlerinin yapılamsı amacıyla kullanılır. Daha önce klasik sql sorgularının yazıldığı Ado .Net kullanılıyordu, bu sorgular veritabanında döndüğü için yanlış olup olmadığını ancak dönen verilere göre karar verilebiliyordu ayrıca T-Sql ve P-Sql komutlarına göre ayrı ayrı sorguların yazılması gerekiyordu. Günümüzde Entity Framework sayesinde veritabanına gitmeden uygulama düzeyindfe verilerin doğru olup olmadığını kontrol edebiliyoruz ve yazacağımız kod kullanılan veritabanına göre T-Sql ya da P-Sql sorgularına çevriliyor.if, switch bloğunu kullanır gibi C#'da Entity Frameworkün komutlarını kullanabiliriz.
+
+<h3>Entity Framework Projeye Nasıl dahil edilir?</h3>
+1. Proje oluşturulur. <br/>
+2. Entity Framework eklenecek katmana gelinir ve sağ tıklanır.<br/>
+3. Paket Nuget açılır.<br/>
+4. Browser kısmından Entity Framework aratılır.<br/>
+5. Entity Framework yükelenir. Bu işlem bittikten sonra app.config dosyasında gerekli düzenlemeler otomatik olarak yapılır.<br/>
+6. Veritabanı için modeller oluşturulur. <br/>
+7. Bir tane sınıf tanımlanır "ÖrnekContex".<br/>
+8. DbContext sınıfından inharitance aldırılır.<br/>
+ÖrnekContext sınıfını trafik polisine benzetebiliriz, uygulama ve veritabanı arasındaki iletişimi sağlayan kısımdır.<br/>
+9. Tanımlanan modellere göre oluşturulan sınıf içine DbSet<ÖrnekModeller> şeklinde tanımlama yapılır< => bu kısım  veri tabanındaki tablolara, tanımlanan modelin içeriğindeki özellikler ise columlara karşılık gelmektedir.<br/>
+10. DbContext için herhangi bir adres tanımlaması yapılmadıysa localhosta olmaması halinde yeni bir veritabanı oluşturur.<br/>
+11. Connection string tanımlaması yapılması halinde istediğimiz yerde veritabanının oluşmasını sağlayabiliriz. <br/>
+12. Web.config dosyası açılır.<br/>
+13. Buraya server adı, kullanıcı adı, şifre girilerek server oluşturulmuş olur.<br/>
+14.  
+<connectionStrings>
+    <add connectionString="server=(localdb)\MSSQLLocalDB;database=BlogDatabase;integrated security=SSPI;" name="BlogDatabase" providerName="System.Data.SqlClient" />
+ </connectionStrings> şeklinde tanımlama yapılır.<br/>
+ 15. name="BlogDatabase" tanımlanabilmesi için DbContexten kalıtım alan sınıfa yani ÖrnekContext'in constructruna base olarak bu ismin verilemsi gerekmektedir.
+ 
+ ![image](https://user-images.githubusercontent.com/89140860/184946793-d05a9a06-7d75-4e1e-b427-e8a3f0bdabcf.png)
+
+ 
+ 
+
 
