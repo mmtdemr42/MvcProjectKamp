@@ -33,7 +33,7 @@ inheritance alır. İçerisinde yer alan ActionResult methotları sayesinde iste
 
 
  Geriye göndürülen View .cshtml uzantılıdır. .cshtml uzantılı View sayesinde dinamik olarak almış olduğumuz verileri statik olarak html formatına çevirmemizi sağlar.
- Controllers kalsörünü altına tanımlanan her Controller için View klasörünün altında Controllerla aynı isimde bir tane klasör oluşturulur. Bu klasörde bu contollere ait view sayfaları bulunur. View kalsöründe başalangıçta ise 2 adet klasör 1 adet _ViewStart dosyası oluşturularak gelir. Klasörlerden ilki Shared klasörüdür. Bu klasörün içerisinde birden fazla View tarafından kullanılan sayfa yapıları bulunur. Bunlardan en önemlileri ise Layout dediğimiz yapıdır.
+ Controllers kalsörünü altına tanımlanan her Controller için View klasörünün altında Controllerla aynı isimde bir tane klasör oluşturulur. Bu klasörde bu contollere ait view sayfaları bulunur. View kalsöründe başalangıçta ise 2 adet klasör 1 adet _ViewStart dosyası oluşturularak gelir. Klasörlerden ilki Shared klasörüdür. Bu klasörün içerisinde birden fazla View tarafından kullanılan sayfa yapıları bulunur. Bunlardan en önemlileri ise Layout dediğimiz yapıdır. İkinci klasör ise Home klasörüdür, bu klasörde ise uygulamanın anasayfası oluşurulur, bu istenildiği zaman App_Start klasörünün altında bulunan Route.config dosyasından defaulta istenen dosya ismi verilerek değiştirilebilir. _ViewStart dosyası ise default layoutun hangisinin olacağının tanımlandığı dosyadır.
  
  <h3>Layout Nedir?</h3>
  Web sayfalarında sayfalar değişse bile değişmeyen yerlerin sadece bir yerde tanımlanarak kullanmamıza olanak sağlayan yapıdır. Bu yapı bize kod tekrarını azaltmamızı, kod okunabilirliğinin azaltılmasına ve yapılacak hataların önüne geçmemize olanak sağlar.
@@ -50,6 +50,11 @@ Birden fazla sayfada kullanılırken değişecek olan yerler için <strong>@Rend
  ![image](https://user-images.githubusercontent.com/89140860/184867830-dabe24a8-af7f-4acf-8856-33faeed3eed8.png)
  
  Viewlerin içindeki yapılar razor sayesinde dinamik hale getirlir.
+ 
+ <h3>Partial View Nedir?</h3>
+Parçalayarak modelleme anlamına gelir. Layout sayesinde sayfa bazında tanımlamayabiliyoruz. PartialView sayesinde ise birden fazla sayfada kullanılan yapıları bir yerde tanımlayıp Html helper komutları sayesinde diğer yerlerde de kullanmamıza olanak sağlar.
+
+<h3>Partial View Nasıl Kullanılır?</h3>
  
  
  
