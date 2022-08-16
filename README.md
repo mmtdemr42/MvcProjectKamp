@@ -11,8 +11,9 @@ Asp .Net Mvc web teknolojilerinde büyüyen projelerden ve yazılan kod sayılar
 
 ![image](https://user-images.githubusercontent.com/89140860/184472183-414e8e2a-2397-4b56-956e-d55e7854fc88.png)
 
-<br/>
 
-![image](https://user-images.githubusercontent.com/89140860/184471653-5d9b4ad3-3ce1-4f1a-8e15-0b0d623cd77e.png)
+ Geriye göndürülen View .cshtml uzantılıdır. Nu yapı sayesinde dinamik verieleri statk olarak html kodlarına çevirmemizi sağlar. Yeni bir ptoje oluşturma
+ k için Visyal Studio açılır Create New Project>Asp .Net MVC(.Net Framework) seçilir, projenin ismi ve bilgisayarda depolanacağı alan seçilerek proje oluşturulur.
 
- 
+<img src="E:/Kullanicilar/MehmetDemir/Downloads/Mvc.png" alt="Klasör Düzeni" width="500" height="600">
+
